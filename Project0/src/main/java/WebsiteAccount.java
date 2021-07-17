@@ -10,6 +10,9 @@ public class WebsiteAccount {
 		String email;  
 		String accountType; 
 		boolean isTeller; 
+		String phoneNumber; 
+		String birthDate; 
+		TextFiles textFile = new TextFiles(); 
 		
 		
 		
@@ -21,6 +24,16 @@ public class WebsiteAccount {
 		//this saves email
 		email= in.nextLine(); 
 		
+		System.out.println("What is your phone number"); 
+		//this saves number
+		phoneNumber= in.nextLine(); 
+		
+		
+		System.out.println("What is your birthday"); 
+		//this saves birthday
+		birthDate= in.nextLine(); 
+		
+		
 		System.out.println("Are you a bank teller? Type yes or no"); 
 		accountType= in.nextLine(); 
 		if (accountType.equals("yes")) {
@@ -31,9 +44,14 @@ public class WebsiteAccount {
 			System.out.println("This is not a valid option"); 
 			return; 
 		}
-		System.out.println("Username: " + userName + " Email: " + email + " isTeller: " + isTeller);
+		System.out.println("Username: " + userName + " Email: " + email + "Phone Number: " + phoneNumber + "Birthdate: " + birthDate + " isTeller: " + isTeller);
 		
+		textFile.save(userName, email, phoneNumber, birthDate, isTeller); 
+		
+	
 	}
+	
+	
 	
 	
 }
