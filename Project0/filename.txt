@@ -1,1 +1,0 @@
-UserName: jlilly, Email: jlilly@yahoo.com, Phone Number: 704-401-9165, Birthdate: 03-16-1992, Teller: true

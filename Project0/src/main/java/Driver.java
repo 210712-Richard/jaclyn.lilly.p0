@@ -1,15 +1,18 @@
 import java.util.Scanner; 
 public class Driver {
 
-	public static void main(String[] args) {
-		
-		
-		
-		
+	public static void main(String[] args) {		
 		Scanner in=new Scanner(System.in);
 		int menuSelection=0; 
-		
 		 
+		WebsiteAccount websiteAccount1=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
+		WebsiteAccount.save(websiteAccount1);
+		WebsiteAccount websiteAccount2=new WebsiteAccount ("jaclyn", "jaclynlilly@yahoo.com", false, "37382303", "042891"); 
+		WebsiteAccount.save(websiteAccount2);
+		WebsiteAccount websiteAccount3=new WebsiteAccount ("julia", "julia@gmail.com", false, "92382303", "060898"); 
+		WebsiteAccount.save(websiteAccount3);
+		WebsiteAccount websiteAccount4=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
+		WebsiteAccount.save(websiteAccount4);
 
 		while(menuSelection !=3) {
 		System.out.println("Hello! Please select an option"
@@ -22,10 +25,11 @@ public class Driver {
 		switch (menuSelection) {
 		//register option
 		case 1:
-			WebsiteAccount websiteAccount = new WebsiteAccount(); 
-			websiteAccount.register();
+			WebsiteAccount websiteAccount= WebsiteAccount.register();
+			WebsiteAccount.save(websiteAccount); 
 			break; 
-		case 2: 
+		case 2:  
+			WebsiteAccount.load(); 
 			break; 
 		case 3: 
 			break; 
@@ -34,7 +38,6 @@ public class Driver {
 		}
 		
 		
-	
 		//if user selected number 1 call Register() -> myvar =new WebsiteAccount() -> myvar.Register()
 		//if user seelected number 2 call login -> create new user, depending who they are they areetiehr a bankteller or a customer so do accordingly
 		
