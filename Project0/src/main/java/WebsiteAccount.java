@@ -1,7 +1,10 @@
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class WebsiteAccount {
+public class WebsiteAccount implements Serializable{
+	private static List<WebsiteAccount> accounts;
 	//attributes of website account class
 	String userName;  
 	String email;  
@@ -9,6 +12,11 @@ public class WebsiteAccount {
 	boolean isTeller; 
 	String phoneNumber; 
 	String birthDate; 
+	
+	static {
+		WebsiteAccount.load();
+		System.out.println(accounts);
+	}
 	
 	//default constructor 
 	public WebsiteAccount() {
@@ -64,22 +72,24 @@ public class WebsiteAccount {
 		}
 		
 		WebsiteAccount websiteAccount = new WebsiteAccount(userName, email, isTeller, phoneNumber, birthDate); 
+		// add the new account to the list
+		accounts.add(websiteAccount);
 		return websiteAccount; 
 				
 			
 	}
 	
-	public static void save(WebsiteAccount websiteAccount) {
-		TextFiles.save(websiteAccount); 
+	public static void save() {
+		TextFiles<WebsiteAccount> file = new TextFiles<>();
+		file.writeObjectsToFile(accounts, "accounts.txt"); 
 	}
 	
 	public static void load(){
-		List<String> lines =TextFiles.read();
-		
-		for(int i=0; i<lines.size(); i++) {
-			System.out.println(lines.get(i));
+		TextFiles<WebsiteAccount> file = new TextFiles<>();
+		accounts = file.readObjectsFromFile("accounts.txt");
+		if(accounts == null) {
+			accounts = new ArrayList<WebsiteAccount>();
 		}
-		
 		
 	}
 	

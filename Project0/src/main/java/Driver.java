@@ -6,13 +6,13 @@ public class Driver {
 		int menuSelection=0; 
 		 
 		WebsiteAccount websiteAccount1=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
-		WebsiteAccount.save(websiteAccount1);
+		WebsiteAccount.save();
 		WebsiteAccount websiteAccount2=new WebsiteAccount ("jaclyn", "jaclynlilly@yahoo.com", false, "37382303", "042891"); 
-		WebsiteAccount.save(websiteAccount2);
+		WebsiteAccount.save();
 		WebsiteAccount websiteAccount3=new WebsiteAccount ("julia", "julia@gmail.com", false, "92382303", "060898"); 
-		WebsiteAccount.save(websiteAccount3);
+		WebsiteAccount.save();
 		WebsiteAccount websiteAccount4=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
-		WebsiteAccount.save(websiteAccount4);
+		WebsiteAccount.save();
 
 		while(menuSelection !=3) {
 		System.out.println("Hello! Please select an option"
@@ -26,7 +26,7 @@ public class Driver {
 		//register option
 		case 1:
 			WebsiteAccount websiteAccount= WebsiteAccount.register();
-			WebsiteAccount.save(websiteAccount); 
+			WebsiteAccount.save(); 
 			break; 
 		case 2:  
 			WebsiteAccount.load(); 
