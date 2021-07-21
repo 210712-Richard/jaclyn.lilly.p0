@@ -109,6 +109,11 @@ public class WebsiteAccount implements Serializable{
 	public void login() {
 			
 	}
+
+	public static WebsiteAccount login(String userName2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

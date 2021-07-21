@@ -1,9 +1,13 @@
-import java.util.Scanner; 
+import java.util.Scanner;
+
+ 
 public class Driver {
+	public static WebsiteAccount loggedAccount;
 
 	public static void main(String[] args) {		
 		Scanner in=new Scanner(System.in);
 		int menuSelection=0; 
+		
 		 
 		WebsiteAccount websiteAccount1=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
 		WebsiteAccount.save();
@@ -29,13 +33,25 @@ public class Driver {
 			WebsiteAccount.save(); 
 			break; 
 		case 2:  
-			WebsiteAccount.load(); 
+			System.out.println("Please enter your username: ");
+			String userName = in.nextLine();
+			loggedAccount = WebsiteAccount.login(userName);
+			
+			if(loggedAccount == null) {
+				System.out.println("Please try again.");
+			} else {
+				System.out.println("Welcome back: "+u.getUsername());
+			}
+			
+			// Call the user service to find the user we want.
 			break; 
 		case 3: 
+			//quit
+			System.out.println("Goodbye");
 			break; 
 			
-		
 		}
+	
 		
 		
 		//if user selected number 1 call Register() -> myvar =new WebsiteAccount() -> myvar.Register()
