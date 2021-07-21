@@ -6,7 +6,7 @@ public class Driver {
 
 	public static void main(String[] args) {		
 		Scanner in=new Scanner(System.in);
-		int menuSelection=0; 
+		int menuSelection=0;  
 		
 		 
 		WebsiteAccount websiteAccount1=new WebsiteAccount ("Will", "will@yahoo.com", false, "37382303", "042891"); 
@@ -40,8 +40,15 @@ public class Driver {
 			if(loggedAccount == null) {
 				System.out.println("Please try again.");
 			} else {
-				System.out.println("Welcome back: "+u.getUsername());
+				System.out.println("Welcome back: "+userName);
 			}
+			userName= in.nextLine();
+			System.out.println("What would you like to do?"
+					+"\n1. Register for checking account?"
+					+ "\n2. Register for saving account?"
+					+ "\3. Check saving account balance?"
+					+ "\4. Check checking account balance?"); 
+					
 			
 			// Call the user service to find the user we want.
 			break; 
