@@ -5,6 +5,7 @@ public class BankAccount {
 private double balance;
 private int id;
 double amount;
+int previousTransaction; 
 
 
 public BankAccount(int id, double balance) {
@@ -67,6 +68,19 @@ public void withdraw(double withdrawalAmount) {
 			System.out.println("You have withdrawal " + withdrawalAmount + "from your account." + "\n" +
 							"Balance is now: " + this.balance);
 	}
+}
+
+
+public void getPreviousTransaction() {
+	if(previousTransaction>0) {
+		System.out.println("Deposited: " + previousTransaction);
+	}else if (previousTransaction<0) {
+		System.out.println("Withdrawn: " + Math.abs(previousTransaction));
+	}else {
+		System.out.println("No transaction occured");
+	}
+	
+	
 }
 
 

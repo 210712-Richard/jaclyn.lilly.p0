@@ -33,21 +33,20 @@ public class Driver {
 			WebsiteAccount.save(); 
 			break; 
 		case 2:  
-			System.out.println("Please enter your username: ");
-			String userName = in.nextLine();
+			
 			loggedAccount = WebsiteAccount.login(userName);
 			
 			if(loggedAccount == null) {
 				System.out.println("Please try again.");
 			} else {
-				System.out.println("Welcome back: "+userName);
+				System.out.println("Welcome back: "+loggedAccount.getUserName());
 			}
-			userName= in.nextLine();
-			System.out.println("What would you like to do?"
-					+"\n1. Register for checking account?"
-					+ "\n2. Register for saving account?"
-					+ "\3. Check saving account balance?"
-					+ "\4. Check checking account balance?"); 
+			
+		//	System.out.println("What would you like to do?"
+			//		+"\n1. Register for checking account?"
+			//		+ "\n2. Register for saving account?"
+			//		+ "\3. Check saving account balance?"
+			 //		+ "\4. Check checking account balance?"); 
 					
 			
 			// Call the user service to find the user we want.

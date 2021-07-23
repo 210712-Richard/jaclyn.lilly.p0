@@ -13,10 +13,54 @@ public class WebsiteAccount implements Serializable{
 	String phoneNumber; 
 	String birthDate; 
 	
-	static {
-		WebsiteAccount.load();
-		System.out.println(accounts);
+	public String getUserName() {
+		return userName;
 	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
+	public boolean isTeller() {
+		return isTeller;
+	}
+
+	public void setTeller(boolean isTeller) {
+		this.isTeller = isTeller;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
 	
 	//default constructor 
 	public WebsiteAccount() {
@@ -84,12 +128,13 @@ public class WebsiteAccount implements Serializable{
 		file.writeObjectsToFile(accounts, "accounts.txt"); 
 	}
 	
-	public static void load(){
+	public static List<WebsiteAccount> load(){
 		TextFiles<WebsiteAccount> file = new TextFiles<>();
 		accounts = file.readObjectsFromFile("accounts.txt");
 		if(accounts == null) {
 			accounts = new ArrayList<WebsiteAccount>();
 		}
+		return accounts; 
 		
 	}
 	
@@ -106,13 +151,14 @@ public class WebsiteAccount implements Serializable{
 		
 	}
 
-	public void login() {
-			
-	}
+
 
 	public static WebsiteAccount login(String userName2) {
-		// TODO Auto-generated method stub
-		return null;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Please enter your username: ");
+		String userName = in.nextLine();
+		load();
+		return null; 
 	}
 	
 	
