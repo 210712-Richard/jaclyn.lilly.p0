@@ -22,10 +22,15 @@ public class App {
 
 			if (input.equals("4")) {
 				System.out.println("Goodbye");
+				
 			} else if (input.equals("2")) {
 				registerCustomer(sc); 
+				
 			}
-			else
+			else if input.equals("3")){
+				registerTeller(sc); 
+			
+			}
 			{
 				System.out.println("Invalid Input");
 				continue;
@@ -33,6 +38,42 @@ public class App {
 
 		}
 
+	}
+
+	private static void registerTeller(Scanner sc) {
+		while(true) {
+			//collect user name
+			System.out.println("Enter your username or hit (1) to go back"); 
+			String userName = sc.nextLine(); 
+			if(userName.equals("1")) {
+				break; 
+			}
+			
+			//collect first name
+			System.out.println("Enter your Name or press (1) to go back"); 
+			String firstName = sc.nextLine();
+			if (firstName.equals("1")) {
+				break; 
+			}
+			
+			// collect last name
+			System.out.println("Enter your last name or hit (1) to go back");
+			String lastName = sc.nextLine();
+			if (lastName.equals("1")) {
+				break;
+			}
+						
+			// collect password
+			System.out.println("Enter your password or hit (1) to go back");
+			String password = sc.nextLine();
+			if (password.equals("1")) {
+				continue;
+			
+			
+			
+			Teller teller = new Teller(firstName, lastName, userName, password, 0, 0); 
+		}
+		
 	}
 
 	public static void registerCustomer(Scanner sc) {
@@ -60,12 +101,19 @@ public class App {
 			System.out.println("Enter your password or hit (1) to go back");
 			String password = sc.nextLine();
 			if (password.equals("1")) {
-				break;
+				continue;
+				
 			}
-
+			
 			Customer cust = new Customer(firstName, lastName, userName, password, 0, 0); 
 			//call a method that writes your customer to a file - filewriter 
 			//close file it should save
 		}
+		
+		
+		
+		
+		
 	}
+	
 }
